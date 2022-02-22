@@ -1,4 +1,4 @@
-import react from "react";
+// import react from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Top from "./page/Top";
 import Watch from "./page/Watch";
