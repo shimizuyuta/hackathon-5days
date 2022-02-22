@@ -2,7 +2,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Top from "./page/Top";
 import Watch from "./page/Watch";
-import Search from "./page/Search";
 import "normalize.css";
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Top />} />
-          <Route path="/search" element={<Search />} />
           <Route path="/watch" element={<Watch />} />
         </Routes>
       </BrowserRouter>
