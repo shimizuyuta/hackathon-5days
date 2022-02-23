@@ -1,0 +1,12 @@
+{
+  "dev": {
+    "configLevel": "project",
+    "useProfile": false,
+    "awsConfigFilePath": "C:\\Users\\clean_water\\.amplify\\awscloudformation\\lSlU82EaSM"
+  },
+  "amplify": {
+    "configLevel": "project",
+    "useProfile": false,
+    "awsConfigFilePath": "C:\\Users\\clean_water\\.amplify\\awscloudformation\\9BMkxrEZuH"
+  }
+}
