@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Style from '../../styles/Search.module.scss'
 //import { useNavigate } from 'react-router-dom'
 import SpeedDial from '@mui/material/SpeedDial';
@@ -8,7 +8,10 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 import Watch from '../watch/Watch';
-import { BsFillSquareFill } from 'react-icons/bs';
+
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 
 
 const Search = props => {
@@ -23,6 +26,28 @@ const Search = props => {
     setOpen(true);
   }
   const handleClose = () => setOpen(false);
+
+  const colorExample = [
+    { h: 0, s: 100, l: 50 },
+    { h: 30, s: 100, l: 50 },
+    { h: 60, s: 100, l: 50 },
+    { h: 120, s: 100, l: 50 },
+    { h: 180, s: 100, l: 50 },
+    { h: 240, s: 100, l: 50 },
+    { h: 270, s: 100, l: 50 },
+    { h: 310, s: 100, l: 75 },
+    { h: 0, s: 0, l: 100 },
+    { h: 0, s: 0, l: 0 }
+  ]
+
+  const actions = [
+    { name: 1 },
+    { name: 2 },
+    { name: 3 },
+    { name: 4 },
+    { name: 5 }
+  ]
+
 
   // const handleClick = (e) => {
   //   navigate('/watch', { state: { id: e } })
@@ -40,13 +65,6 @@ const Search = props => {
     boxShadow: 24,
     p: 4,
   };
-
-  const actions = [
-    { col: '#ff0000', name: 'red1'  },
-    { col: '#ff0000', name: 'red2'  },
-    { col: '#ff0000', name: 'red3'  },
-    { col: '#ff0000', name: 'red4'  }
-  ]
 
   return (
     <>
@@ -78,43 +96,54 @@ const Search = props => {
       <div className={Style.color_map}>
         <Grid
           container
-          direction="row"
+          direction="column"
           justifyContent="center"
           alignItems="center"
         >
-          {
-            colorData.map((color, i) => {
-              return (
-                <Box
-                  key={i}
-                  sx={{
-                    width: 100,
-                    height: 100,
-                    backgroundColor: color,
-                    '&:hover': {
-                      backgroundColor: color,
-                      opacity: [0.9, 0.8, 0.7],
-                    },
-                  }}
-                >
-                  <SpeedDial
-                    ariaLabel="SpeedDial basic example"
-                    direction="down"
-                    icon={<SpeedDialIcon />}
+          <Stack direction="row" spacing={2} className={Style.stack_wrap}>
+            {
+              colorExample.map((color, i) => {
+                return (
+                  <Box
+                    key={i}
+                    sx={{
+                      width: 100,
+                      height: 100,
+                    }}
                   >
-                    {actions.map((action) => (
-                      <SpeedDialAction
-                        key={action.name}
-                        
-                        tooltipTitle={action.name}
-                      />
-                    ))}
-                  </SpeedDial>
-                </Box>
-              )
-            }
-            )}
+                    <SpeedDial
+                      ariaLabel="SpeedDial basic example"
+                      direction="down"
+                      icon={<Box sx={{
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "50%",
+                        backgroundColor: `hsl(${color.h}, ${color.s}%, ${color.l}%)`,
+                      }} />}
+                    >
+                      {actions.map((action, index) => (
+                        <SpeedDialAction
+                          key={action.name}
+                          tooltipTitle={action.name}
+                          onClick={() => console.log(`Clicked -- ${action.name} -- ${color.h}`)}
+                          icon={<Box sx={{
+                            width: "100%",
+                            height: "100%",
+                            borderRadius: "50%",
+                            backgroundColor: `hsl(${color.h}, ${color.s}%, ${80 - index * 15}%)`
+                          }} />}
+                        />
+                      ))}
+                    </SpeedDial>
+                  </Box>
+                )
+              }
+              )}
+          </Stack>
         </Grid>
+
+      </div>
+      <div>
       </div>
     </>
 
@@ -122,3 +151,17 @@ const Search = props => {
 }
 
 export default Search
+
+{/* <SpeedDial
+ariaLabel="SpeedDial basic example"
+direction="down"
+icon={<SpeedDialIcon />}
+>
+{actions.map((action) => (
+  <SpeedDialAction
+    key={action.name}
+    
+    tooltipTitle={action.name}
+  />
+))}
+</SpeedDial> */}
