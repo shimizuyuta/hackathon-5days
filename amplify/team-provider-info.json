@@ -10,6 +10,47 @@
       "StackName": "amplify-hackathon2022teamb-dev-120527",
       "StackId": "arn:aws:cloudformation:ap-northeast-1:463594655489:stack/amplify-hackathon2022teamb-dev-120527/760edfa0-9455-11ec-82dc-0e48f81ad027",
       "AmplifyAppId": "d3f89qmcy3hgu2"
+    },
+    "categories": {
+      "function": {
+        "hackathon2022teambb22f046a": {
+          "deploymentBucketName": "amplify-hackathon2022teamb-dev-120527-deployment",
+          "s3Key": "amplify-builds/hackathon2022teambb22f046a-2b635265752b4c4c4631-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3f89qmcy3hgu2",
+          "type": "manual"
+        }
+      }
+    }
+  },
+  "amplify": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-hackathon2022teamb-amplify-164042-authRole",
+      "UnauthRoleArn": "arn:aws:iam::463594655489:role/amplify-hackathon2022teamb-amplify-164042-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::463594655489:role/amplify-hackathon2022teamb-amplify-164042-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-hackathon2022teamb-amplify-164042-deployment",
+      "UnauthRoleName": "amplify-hackathon2022teamb-amplify-164042-unauthRole",
+      "StackName": "amplify-hackathon2022teamb-amplify-164042",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:463594655489:stack/amplify-hackathon2022teamb-amplify-164042/e6f86710-947b-11ec-a59a-060e4d4399dd",
+      "AmplifyAppId": "d3f89qmcy3hgu2"
+    },
+    "categories": {
+      "function": {
+        "hackathon2022teambb22f046a": {
+          "deploymentBucketName": "amplify-hackathon2022teamb-amplify-164042-deployment",
+          "s3Key": "amplify-builds/hackathon2022teambb22f046a-2b635265752b4c4c4631-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3f89qmcy3hgu2",
+          "type": "manual"
+        }
+      }
     }
   }
 }
