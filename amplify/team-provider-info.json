@@ -10,6 +10,20 @@
       "StackName": "amplify-hackathon2022teamb-dev-120527",
       "StackId": "arn:aws:cloudformation:ap-northeast-1:463594655489:stack/amplify-hackathon2022teamb-dev-120527/760edfa0-9455-11ec-82dc-0e48f81ad027",
       "AmplifyAppId": "d3f89qmcy3hgu2"
+    },
+    "categories": {
+      "function": {
+        "hackathon2022teambb22f046a": {
+          "deploymentBucketName": "amplify-hackathon2022teamb-dev-120527-deployment",
+          "s3Key": "amplify-builds/hackathon2022teambb22f046a-2b635265752b4c4c4631-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3f89qmcy3hgu2",
+          "type": "manual"
+        }
+      }
     }
   }
 }

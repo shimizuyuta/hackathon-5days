@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/teamB": {
+      "name": "/teamB",
+      "lambdaFunction": "hackathon2022teambb22f046a",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
