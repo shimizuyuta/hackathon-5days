@@ -1,0 +1,35 @@
+html {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.beside {
+  display: flex;
+  overflow-x: scroll;
+  text-align: center;
+
+  img {
+    width: 35vw;
+    padding: 2vw;
+  }
+}
+
+.color_map {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  .stack_wrap {
+    padding: 2vw;
+  }
+}
+
+
+
+@media only screen and (min-device-width: 1200px) {
+
+  .beside img {
+    width: 16em;
+    padding: 0.5em;
+  }
+
+}
