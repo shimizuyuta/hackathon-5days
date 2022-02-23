@@ -2,23 +2,19 @@ import React, { useState, useEffect, useRef } from 'react'
 import Style from '../../styles/Search.module.scss'
 //import { useNavigate } from 'react-router-dom'
 import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 import Watch from '../watch/Watch';
-
-import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
+
 
 
 const Search = props => {
   //const navigate = useNavigate();
   const imgUrl = 'https://4.bp.blogspot.com/-4xxTe_qeV1E/Vd7FkNUlwjI/AAAAAAAAxFc/8u9MNKtg7gg/s800/syachiku.png'
   const imgExample = [imgUrl, imgUrl, imgUrl, imgUrl, imgUrl, imgUrl, imgUrl];
-  const colorData = ['hsl(0,100%,83%)', '#ffff00', '#ffa500', '#008000', '#7fffd4', '#ff0000', '#ff69b4'];
   const [open, setOpen] = useState(false);
   const [selectId, setSelectId] = useState('');
   const handleOpen = (e) => {
@@ -27,17 +23,19 @@ const Search = props => {
   }
   const handleClose = () => setOpen(false);
 
+
+
   const colorExample = [
-    { h: 0, s: 100, l: 50 },
-    { h: 30, s: 100, l: 50 },
-    { h: 60, s: 100, l: 50 },
-    { h: 120, s: 100, l: 50 },
-    { h: 180, s: 100, l: 50 },
-    { h: 240, s: 100, l: 50 },
-    { h: 270, s: 100, l: 50 },
-    { h: 310, s: 100, l: 75 },
-    { h: 0, s: 0, l: 100 },
-    { h: 0, s: 0, l: 0 }
+    { id:1, h: 0, s: 100, l: 50 },
+    { id:2, h: 30, s: 100, l: 50 },
+    { id:3, h: 60, s: 100, l: 50 },
+    { id:4, h: 120, s: 100, l: 50 },
+    { id:5, h: 180, s: 100, l: 50 },
+    { id:6, h: 240, s: 100, l: 50 },
+    { id:7, h: 270, s: 100, l: 50 },
+    { id:8, h: 310, s: 100, l: 75 },
+    { id:9, h: 0, s: 0, l: 100 },
+    { id:10, h: 0, s: 0, l: 0 }
   ]
 
   const actions = [
@@ -125,7 +123,7 @@ const Search = props => {
                         <SpeedDialAction
                           key={action.name}
                           tooltipTitle={action.name}
-                          onClick={() => console.log(`Clicked -- ${action.name} -- ${color.h}`)}
+                          onClick={() => console.log(`Clicked -- ${action.name} -- ${color.id}`)}
                           icon={<Box sx={{
                             width: "100%",
                             height: "100%",
@@ -151,17 +149,3 @@ const Search = props => {
 }
 
 export default Search
-
-{/* <SpeedDial
-ariaLabel="SpeedDial basic example"
-direction="down"
-icon={<SpeedDialIcon />}
->
-{actions.map((action) => (
-  <SpeedDialAction
-    key={action.name}
-    
-    tooltipTitle={action.name}
-  />
-))}
-</SpeedDial> */}
