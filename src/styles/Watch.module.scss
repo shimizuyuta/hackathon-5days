@@ -1,0 +1,53 @@
+.watch_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+
+  .watch_img {
+    display: block;
+    width: 48%;
+    height: auto;
+
+    img {
+      width: 300px;
+      padding: 10px;
+    }
+  }
+
+  .watch_detail {
+    width: 48%;
+    text-align: left;
+  }
+}
+
+.box_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+
+  .box_colors {
+    display: block;
+    width: 48%;
+    height: auto;
+  }
+
+  .box_list {
+    width: 48%;
+    display: flex;
+    overflow-x: scroll;
+    text-align: center;
+
+    img {
+      width: 200px;
+      padding: 10px;
+    }
+  }
+}

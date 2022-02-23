@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Style from '../../styles/Search.module.scss'
 //import { useNavigate } from 'react-router-dom'
 import SpeedDial from '@mui/material/SpeedDial';
@@ -8,34 +8,47 @@ import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 import Watch from '../watch/Watch';
 import Stack from '@mui/material/Stack';
-
-
+// import { Store } from '../../store/index';
 
 const Search = props => {
   //const navigate = useNavigate();
-  const imgUrl = 'https://4.bp.blogspot.com/-4xxTe_qeV1E/Vd7FkNUlwjI/AAAAAAAAxFc/8u9MNKtg7gg/s800/syachiku.png'
-  const imgExample = [imgUrl, imgUrl, imgUrl, imgUrl, imgUrl, imgUrl, imgUrl];
+  // const imgUrl = 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg'
+  // const imgExample = [imgUrl, imgUrl, imgUrl, imgUrl, imgUrl, imgUrl, imgUrl];
   const [open, setOpen] = useState(false);
-  const [selectId, setSelectId] = useState('');
+  const [selectId, setSelectId] = useState({});
   const handleOpen = (e) => {
     setSelectId(e);
     setOpen(true);
   }
   const handleClose = () => setOpen(false);
 
+  //商品テーブル
+  const cosmeExsample = [
+    { id: 'abcde001', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
+    { id: 'abcde002', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
+    { id: 'abcde003', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
+    { id: 'abcde004', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
+    { id: 'abcde005', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
+    { id: 'abcde006', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
+    { id: 'abcde007', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
+    { id: 'abcde008', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
+    { id: 'abcde009', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
+    { id: 'abcde0010', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
+    { id: 'abcde0011', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 }
+  ]
 
-
+  //色テーブル
   const colorExample = [
-    { id:1, h: 0, s: 100, l: 50 },
-    { id:2, h: 30, s: 100, l: 50 },
-    { id:3, h: 60, s: 100, l: 50 },
-    { id:4, h: 120, s: 100, l: 50 },
-    { id:5, h: 180, s: 100, l: 50 },
-    { id:6, h: 240, s: 100, l: 50 },
-    { id:7, h: 270, s: 100, l: 50 },
-    { id:8, h: 310, s: 100, l: 75 },
-    { id:9, h: 0, s: 0, l: 100 },
-    { id:10, h: 0, s: 0, l: 0 }
+    { id: 1, h: 0, s: 100, l: 50 },
+    { id: 2, h: 30, s: 100, l: 50 },
+    { id: 3, h: 60, s: 100, l: 50 },
+    { id: 4, h: 120, s: 100, l: 50 },
+    { id: 5, h: 180, s: 100, l: 50 },
+    { id: 6, h: 240, s: 100, l: 50 },
+    { id: 7, h: 270, s: 100, l: 50 },
+    { id: 8, h: 310, s: 100, l: 75 },
+    { id: 9, h: 0, s: 0, l: 100 },
+    { id: 10, h: 0, s: 0, l: 0 }
   ]
 
   const actions = [
@@ -68,14 +81,14 @@ const Search = props => {
     <>
       {props.message}
       <div className={Style.beside}>
-        {imgExample.map((img, i) => {
+        {cosmeExsample.map((cosme, i) => {
           return (
             <img
               key={i}
-              src={img}
+              src={cosme.img}
               alt={`${i}`}
               // onClick={() => handleClick(`${i}`)}
-              onClick={() => handleOpen(`${i}`)}
+              onClick={() => handleOpen(cosme)}
             />
           )
         })}
@@ -86,7 +99,7 @@ const Search = props => {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <Watch id={selectId} />
+            <Watch cosmeObject={selectId} />
           </Box>
         </Modal>
       </div>
