@@ -12,7 +12,7 @@ const Watch = props => {
   const [similarData, setSimilarData] = useState(props.cosmeArray);
   const [pickCosme, setPickCosme] = useState(props.cosmeObject);
 
-  const [choiceColor , setChoiceColor] = useState(props.cosmeColor);
+  const [choiceColor, setChoiceColor] = useState(props.cosmeColor);
 
   useEffect(() => {
     console.log(similarData);
@@ -113,7 +113,7 @@ const Watch = props => {
         </div>
         <div className={Style.box_list}>
           {similarData.map((cosme, i) => {
-            if(cosme.category === props.cosmeObject.category && cosme.color === props.cosmeObject.color && choiceColor - 10 <= cosme.L && cosme.L <= choiceColor + 10 ) {
+            if (cosme.category === props.cosmeObject.category && cosme.color === props.cosmeObject.color && choiceColor - 10 <= cosme.L && cosme.L <= choiceColor + 10) {
               return (
                 <img
                   key={i}
