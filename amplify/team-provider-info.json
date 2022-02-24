@@ -43,6 +43,10 @@
         "hackathon2022teambb22f046a": {
           "deploymentBucketName": "amplify-hackathon2022teamb-amplify-164042-deployment",
           "s3Key": "amplify-builds/hackathon2022teambb22f046a-2b635265752b4c4c4631-build.zip"
+        },
+        "expressMidle": {
+          "deploymentBucketName": "amplify-hackathon2022teamb-amplify-164042-deployment",
+          "s3Key": "amplify-builds/expressMidle-2f4b7553564536314554-build.zip"
         }
       },
       "hosting": {
