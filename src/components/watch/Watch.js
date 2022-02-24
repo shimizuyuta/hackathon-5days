@@ -69,16 +69,16 @@ const Watch = props => {
         </div>
         <div className={Style.watch_detail}>
           <h3>
-            ブランド_{pickCosme.brand}
+            ブランド：{pickCosme.brand}
           </h3>
           <h3>
-            商品名_{pickCosme.name}
+            商品名：{pickCosme.name}
           </h3>
           <h3>
-            色名_{pickCosme.color_name}
+            色名：{pickCosme.color_name}
           </h3>
           <h3>
-            値段_{pickCosme.price}円
+            値段：{pickCosme.price}円
           </h3>
         </div>
       </div>
