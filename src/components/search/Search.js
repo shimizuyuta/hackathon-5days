@@ -151,8 +151,7 @@ const Search = props => {
 
   } else {
     return (
-      <>
-        {props.message}
+      <div className={Style.serch_wrap}>
         <div className={Style.beside}>
           {cosme.map((cosme, i) => {
             return (
@@ -209,6 +208,7 @@ const Search = props => {
                           <SpeedDialAction
                             key={action.name}
                             tooltipTitle={action.name}
+                            tooltipOpen = {true}
                             onClick={() => sendColorApi(80 - index * 15, i + 1)}
                             icon={<Box sx={{
                               width: "100%",
@@ -226,7 +226,7 @@ const Search = props => {
             </Stack>
           </Grid>
         </div>
-      </>
+      </div>
     )
   }
 

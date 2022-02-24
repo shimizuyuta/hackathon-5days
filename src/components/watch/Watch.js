@@ -104,6 +104,7 @@ const Watch = props => {
               <SpeedDialAction
                 key={action.name}
                 tooltipTitle={action.name}
+                tooltipPlacement="top"
                 onClick={() => sendColApi(80 - index * 15, props.cosmeObject.color)}
                 icon={<Box sx={{
                   width: "100%",
