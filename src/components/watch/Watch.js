@@ -17,6 +17,8 @@ const Watch = props => {
   const [similarData, setSimilarData] = useState(props.cosmeArray);
   const [pickCosme, setPickCosme] = useState(props.cosmeObject);
 
+  const [choiceColor , setChoiceColor] = useState(props.cosmeColor);
+
   useEffect(() => {
     console.log(similarData);
   }, [similarData])
@@ -51,11 +53,16 @@ const Watch = props => {
   //   })
   // }
 
-  const sendColApi = async (color, id) => {
-    await axios.get(`https://x154dlmxsb.execute-api.ap-northeast-1.amazonaws.com/dev/teamB`).then(res => {
-      console.log(`${color}`, `${id}`);
-      setSimilarData(res.data);
-    })
+  // const sendColApi = async (color, id) => {
+  //   await axios.get(`https://x154dlmxsb.execute-api.ap-northeast-1.amazonaws.com/dev/teamB`).then(res => {
+  //     console.log(`${color}`, `${id}`);
+  //     setSimilarData(res.data);
+  //   })
+  // }
+
+  //色選択時API
+  const sendColApi = (color) => {
+    setChoiceColor(color);
   }
 
   const imgClick = (e) => {
@@ -105,7 +112,7 @@ const Watch = props => {
                 key={action.name}
                 tooltipTitle={action.name}
                 tooltipPlacement="top"
-                onClick={() => sendColApi(80 - index * 15, props.cosmeObject.color)}
+                onClick={() => sendColApi(80 - index * 15)}
                 icon={<Box sx={{
                   width: "100%",
                   height: "100%",
@@ -118,14 +125,16 @@ const Watch = props => {
         </div>
         <div className={Style.box_list}>
           {similarData.map((cosme, i) => {
-            return (
-              <img
-                key={i}
-                src={cosme.img}
-                alt={`${i}`}
-                onClick={() => imgClick(i)}
-              />
-            )
+            if(cosme.category === props.cosmeObject.category && cosme.color === props.cosmeObject.color && choiceColor - 10 <= cosme.L && cosme.L <= choiceColor + 10 ) {
+              return (
+                <img
+                  key={i}
+                  src={cosme.img}
+                  alt={`${i}`}
+                  onClick={() => imgClick(i)}
+                />
+              )
+            }
           })}
         </div>
       </div>

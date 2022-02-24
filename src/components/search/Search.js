@@ -24,15 +24,14 @@ const Search = props => {
   // const imgUrl = 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg'
   // const imgExample = [imgUrl, imgUrl, imgUrl, imgUrl, imgUrl, imgUrl, imgUrl];
   const [open, setOpen] = useState(false);
-  const [selectId, setSelectId] = useState({});
+  const [select, setSelect] = useState({});
   const loading = useRef(false);
   const [choiceColor , setChoiceColor] = useState(50);
   //const choiceId = useRef('1');
   const [choiceId , setChoiceId] = useState('1');
 
   const handleOpen = (e) => {
-    setGlobalState({ type: 'SET_COSME', payload: cosme });
-    setSelectId(e);
+    setSelect(e);
     setOpen(true);
   }
 
@@ -166,7 +165,7 @@ const Search = props => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Watch cosmeObject={selectId} cosmeArray={cosme} />
+              <Watch cosmeObject={select} cosmeArray={cosme} cosmeColor={choiceColor}/>
             </Box>
           </Modal>
         </div>

@@ -30,6 +30,7 @@
   align-items: center;
   flex-wrap: wrap;
   max-width: 750px;
+  min-height: 235px;
   margin: 0 auto;
   text-align: center;
 
@@ -41,6 +42,7 @@
 
   .box_list {
     width: 50%;
+    min-height: 235px;
     display: flex;
     overflow-x: scroll;
     text-align: center;
