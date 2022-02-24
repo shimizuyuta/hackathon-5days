@@ -11,6 +11,12 @@ Amplify.configure(awsconfig);
 
 
 function App() {
+  const sendApi = async() =>{
+    // const data = await API.get('apif0a60b76','/teamB')
+    const data = await API.get('apif0a60b76','/item')
+    console.log(data)
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -19,6 +25,7 @@ function App() {
           <Route path="/watch" element={<Watch />} />
         </Routes>
       </BrowserRouter>
+      <button onClick={sendApi}>bbb</button>
     </div>
   );
 }

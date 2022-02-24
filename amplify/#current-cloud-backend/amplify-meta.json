@@ -29,7 +29,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-hackathon2022teamb-amplify-164042-deployment/amplify-cfn-templates/function/hackathon2022teambb22f046a-cloudformation-template.json",
         "logicalId": "functionhackathon2022teambb22f046a"
       },
-      "lastPushTimeStamp": "2022-02-23T08:18:01.471Z",
+      "lastPushTimeStamp": "2022-02-24T05:54:45.107Z",
       "output": {
         "Region": "ap-northeast-1",
         "Arn": "arn:aws:lambda:ap-northeast-1:463594655489:function:hackathon2022teambb22f046a-amplify",
@@ -37,6 +37,32 @@
         "LambdaExecutionRole": "hackathon2022teambLambdaRolee2e81928-amplify"
       },
       "lastPushDirHash": "HZf7D/ckbI7E+/1iFOtuKVB1dhs="
+    },
+    "expressMidle": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastDevBuildTimeStamp": "2022-02-24T02:59:19.813Z",
+      "lastBuildType": "PROD",
+      "lastBuildTimeStamp": "2022-02-24T05:53:09.434Z",
+      "lastPackageTimeStamp": "2022-02-24T05:53:10.074Z",
+      "distZipFilename": "expressMidle-2f4b7553564536314554-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-hackathon2022teamb-amplify-164042-deployment",
+        "s3Key": "amplify-builds/expressMidle-2f4b7553564536314554-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-hackathon2022teamb-amplify-164042-deployment/amplify-cfn-templates/function/expressMidle-cloudformation-template.json",
+        "logicalId": "functionexpressMidle"
+      },
+      "lastPushTimeStamp": "2022-02-24T05:54:45.167Z",
+      "output": {
+        "Region": "ap-northeast-1",
+        "Arn": "arn:aws:lambda:ap-northeast-1:463594655489:function:expressMidle-amplify",
+        "Name": "expressMidle-amplify",
+        "LambdaExecutionRole": "hackathon2022teambLambdaRoleb9d9440d-amplify"
+      },
+      "lastPushDirHash": "I6UHtZjxRkk4O1qEO1I6fSH2JqA="
     }
   },
   "api": {
@@ -51,19 +77,27 @@
             "Name",
             "Arn"
           ]
+        },
+        {
+          "category": "function",
+          "resourceName": "expressMidle",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
         }
       ],
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-hackathon2022teamb-amplify-164042-deployment/amplify-cfn-templates/api/apif0a60b76-cloudformation-template.json",
         "logicalId": "apiapif0a60b76"
       },
-      "lastPushTimeStamp": "2022-02-23T08:18:01.471Z",
+      "lastPushTimeStamp": "2022-02-24T05:54:45.167Z",
       "output": {
         "ApiName": "apif0a60b76",
         "RootUrl": "https://2bc6cgnu0f.execute-api.ap-northeast-1.amazonaws.com/amplify",
         "ApiId": "2bc6cgnu0f"
       },
-      "lastPushDirHash": "AvTxhcjywDtJs/vovN6i3cLM51k="
+      "lastPushDirHash": "Ha4y07u6Szj2wrbThUSJnZUqImM="
     }
   },
   "hosting": {
@@ -75,7 +109,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-hackathon2022teamb-amplify-164042-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
         "logicalId": "hostingamplifyhosting"
       },
-      "lastPushTimeStamp": "2022-02-23T08:18:01.471Z",
+      "lastPushTimeStamp": "2022-02-24T05:54:45.131Z",
       "output": {},
       "lastPushDirHash": "rJHI4coLQw2btyL3RFPsCOp9pMM="
     }
