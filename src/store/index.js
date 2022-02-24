@@ -1,7 +1,8 @@
-import React, {createContext, useReducer} from 'react'
+import React, { createContext, useReducer } from 'react'
 
 const initialState = {
-  cosme: {}
+  cosme: [],
+  isLoading: false,
 }
 
 const reducer = (state, action) => {
@@ -11,6 +12,12 @@ const reducer = (state, action) => {
         ...state,
         cosme: action.payload.cosme
       }
+
+    case 'SET_LOADING':
+      return {
+        isLoading: action.payload
+      }
+
     default:
       return state
   }
@@ -21,9 +28,9 @@ export const Store = createContext({
   setGlobalState: () => null
 })
 
-export const StoreProvider = ({children}) => {
+export const StoreProvider = ({ children }) => {
   const [globalState, setGlobalState] = useReducer(reducer, initialState)
   return (
-    <Store.Provider value={{globalState, setGlobalState}}>{children}</Store.Provider>
+    <Store.Provider value={{ globalState, setGlobalState }}>{children}</Store.Provider>
   )
 }
