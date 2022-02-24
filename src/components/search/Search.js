@@ -15,9 +15,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
 
-
 Amplify.configure(awsconfig);
-
 
 const Search = props => {
   const { globalState, setGlobalState } = useContext(Store);
@@ -28,6 +26,9 @@ const Search = props => {
   const [open, setOpen] = useState(false);
   const [selectId, setSelectId] = useState({});
   const loading = useRef(false);
+  const [choiceColor , setChoiceColor] = useState(50);
+  //const choiceId = useRef('1');
+  const [choiceId , setChoiceId] = useState('1');
 
   const handleOpen = (e) => {
     setGlobalState({ type: 'SET_COSME', payload: cosme });
@@ -64,11 +65,18 @@ const Search = props => {
   }, [])
 
   //色選択時API
-  const sendColorApi = async (color, id) => {
-    await API.get('apif0a60b76','/item').then(res => {
-      console.log(`${color}`, `${id}`);
-      setCosme(res);
-    })
+  // const sendColorApi = async (color, id) => {
+  //   await API.get('apif0a60b76','/item').then(res => {
+  //     console.log(`${color}`, `${id}`);
+  //     setCosme(res);
+  //   })
+  // }
+
+  //色選択時API
+  const sendColorApi = (color, id) => {
+    setChoiceColor(color);
+    setChoiceId(String(id));
+    console.log(choiceColor.current, choiceId);
   }
 
   //axios version
@@ -78,21 +86,6 @@ const Search = props => {
   //     setCosme(res.data);
   //   })
   // }
-
-  //商品テーブル
-  const cosmeExsample = [
-    { id: 'abcde001', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde002', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde003', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde004', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde005', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde006', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde007', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde008', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde009', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde0010', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde0011', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 }
-  ]
 
   //色テーブル
   const colorExample = [
@@ -154,15 +147,17 @@ const Search = props => {
       <div className={Style.serch_wrap}>
         <div className={Style.beside}>
           {cosme.map((cosme, i) => {
-            return (
-              <img
-                key={i}
-                src={cosme.img}
-                alt={`${i}`}
-                // onClick={() => handleClick(`${i}`)}
-                onClick={() => handleOpen(cosme)}
-              />
-            )
+            if( cosme.category === props.message && cosme.color === choiceId && choiceColor - 10 <= cosme.L && cosme.L <= choiceColor + 10 ){
+              return (
+                <img
+                  key={i}
+                  src={cosme.img}
+                  alt={`${i}`}
+                  // onClick={() => handleClick(`${i}`)}
+                  onClick={() => handleOpen(cosme)}
+                />
+              )
+            }
           })}
           <Modal
             open={open}
