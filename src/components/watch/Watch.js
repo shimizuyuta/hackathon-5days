@@ -18,7 +18,7 @@ const Watch = props => {
   const [pickCosme, setPickCosme] = useState(props.cosmeObject);
 
   useEffect(() => {
-    console.log(similarData);
+    // console.log(similarData);
   }, [similarData])
 
   //色テーブル

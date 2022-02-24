@@ -626,7 +626,7 @@
         }
       }
     },
-    "DeploymentAPIGWapif0a60b76e02ef934": {
+    "DeploymentAPIGWapif0a60b768d670dea": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
