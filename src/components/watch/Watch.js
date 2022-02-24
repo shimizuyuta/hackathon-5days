@@ -1,19 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import Style from '../../styles/Watch.module.scss'
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Amplify, { API } from 'aws-amplify';
 import awsconfig from '../../aws-exports';
-import { Store } from '../../store/index';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-import axios from 'axios';
 
 Amplify.configure(awsconfig);
 
 const Watch = props => {
-  const { globalState, setGlobalState } = useContext(Store);
-
   const [similarData, setSimilarData] = useState(props.cosmeArray);
   const [pickCosme, setPickCosme] = useState(props.cosmeObject);
 
@@ -53,20 +48,13 @@ const Watch = props => {
   //   })
   // }
 
-  // const sendColApi = async (color, id) => {
-  //   await axios.get(`https://x154dlmxsb.execute-api.ap-northeast-1.amazonaws.com/dev/teamB`).then(res => {
-  //     console.log(`${color}`, `${id}`);
-  //     setSimilarData(res.data);
-  //   })
-  // }
-
   //色選択時API
   const sendColApi = (color) => {
     setChoiceColor(color);
   }
 
   const imgClick = (e) => {
-    console.log(e)
+    //console.log(e)
     setPickCosme(similarData[e]);
     //console.log(pickCosme)
   }
