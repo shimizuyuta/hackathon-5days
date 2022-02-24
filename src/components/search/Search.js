@@ -40,44 +40,44 @@ const Search = props => {
   
 
   //商品API
-  // const sendApi = async () => {
-  //   await API.get('apif0a60b76', '/teamB').then(res => {
-  //     setCosme(res);
-  //     console.log(cosme);
-  //     loading.current = true;
-  //   })
-  // }
+  const sendApi = async () => {
+    await API.get('apif0a60b76','/item').then(res => {
+      setCosme(res);
+      console.log(cosme);
+      //loading.current = true;
+    })
+  }
 
   //axios version
-  const sendApi = async() => {
-    axios.get('https://x154dlmxsb.execute-api.ap-northeast-1.amazonaws.com/dev/teamB').then(res => {
-      setCosme(res.data);
-      console.log(cosme);
-    })
-    loading.current = true;
-  }
+  // const sendApi = async() => {
+  //   axios.get('https://x154dlmxsb.execute-api.ap-northeast-1.amazonaws.com/dev/teamB').then(res => {
+  //     setCosme(res.data);
+  //     console.log(cosme);
+  //   })
+  //   loading.current = true;
+  // }
 
   //APP起動時の初期ロード
   useEffect(() => {
-    loading.current = false;
+    loading.current = true;
     sendApi();
   }, [])
 
   //色選択時API
-  // const sendColorApi = async (color, id) => {
-  //   await API.get('apif0a60b76', '/teamB').then(res => {
-  //     console.log(`${color}`, `${id}`);
-  //     setCosme(res);
-  //   })
-  // }
-
-  //axios version
   const sendColorApi = async (color, id) => {
-    await axios.get('https://x154dlmxsb.execute-api.ap-northeast-1.amazonaws.com/dev/teamB').then(res => {
+    await API.get('apif0a60b76','/item').then(res => {
       console.log(`${color}`, `${id}`);
-      setCosme(res.data);
+      setCosme(res);
     })
   }
+
+  //axios version
+  // const sendColorApi = async (color, id) => {
+  //   await axios.get('https://x154dlmxsb.execute-api.ap-northeast-1.amazonaws.com/dev/teamB').then(res => {
+  //     console.log(`${color}`, `${id}`);
+  //     setCosme(res.data);
+  //   })
+  // }
 
   //商品テーブル
   const cosmeExsample = [
