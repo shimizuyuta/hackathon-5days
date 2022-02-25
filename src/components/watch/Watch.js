@@ -92,7 +92,7 @@ const Watch = props => {
               width: "100%",
               height: "100%",
               borderRadius: "50%",
-              backgroundColor: `hsl(${props.cosmeObject.H}, ${props.cosmeObject.S}%, ${props.cosmeObject.L}%)`,
+              backgroundColor: `hsl(${pickCosme.H}, ${pickCosme.S}%, ${pickCosme.L}%)`,
             }} />}
           >
             {actions.map((action, index) => (
@@ -105,7 +105,7 @@ const Watch = props => {
                   width: "100%",
                   height: "100%",
                   borderRadius: "50%",
-                  backgroundColor: `hsl(${props.cosmeObject.H}, ${props.cosmeObject.S}%, ${80 - index * 15}%)`
+                  backgroundColor: `hsl(${pickCosme.H}, ${pickCosme.S}%, ${80 - index * 15}%)`
                 }} />}
               />
             ))}
