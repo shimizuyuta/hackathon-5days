@@ -29,7 +29,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-hackathon2022teamb-amplify-164042-deployment/amplify-cfn-templates/function/hackathon2022teambb22f046a-cloudformation-template.json",
         "logicalId": "functionhackathon2022teambb22f046a"
       },
-      "lastPushTimeStamp": "2022-02-24T10:57:08.620Z",
+      "lastPushTimeStamp": "2022-02-24T11:29:30.138Z",
       "output": {
         "Region": "ap-northeast-1",
         "Arn": "arn:aws:lambda:ap-northeast-1:463594655489:function:hackathon2022teambb22f046a-amplify",
@@ -44,25 +44,25 @@
       "service": "Lambda",
       "lastDevBuildTimeStamp": "2022-02-24T02:59:19.813Z",
       "lastBuildType": "PROD",
-      "lastBuildTimeStamp": "2022-02-24T10:56:02.288Z",
-      "lastPackageTimeStamp": "2022-02-24T10:56:03.949Z",
-      "distZipFilename": "expressMidle-79397546554936776d36-build.zip",
+      "lastBuildTimeStamp": "2022-02-24T11:28:25.092Z",
+      "lastPackageTimeStamp": "2022-02-24T11:28:25.752Z",
+      "distZipFilename": "expressMidle-7a466936316c46616578-build.zip",
       "s3Bucket": {
         "deploymentBucketName": "amplify-hackathon2022teamb-amplify-164042-deployment",
-        "s3Key": "amplify-builds/expressMidle-79397546554936776d36-build.zip"
+        "s3Key": "amplify-builds/expressMidle-7a466936316c46616578-build.zip"
       },
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-hackathon2022teamb-amplify-164042-deployment/amplify-cfn-templates/function/expressMidle-cloudformation-template.json",
         "logicalId": "functionexpressMidle"
       },
-      "lastPushTimeStamp": "2022-02-24T10:57:08.717Z",
+      "lastPushTimeStamp": "2022-02-24T11:29:30.198Z",
       "output": {
         "Region": "ap-northeast-1",
         "Arn": "arn:aws:lambda:ap-northeast-1:463594655489:function:expressMidle-amplify",
         "Name": "expressMidle-amplify",
         "LambdaExecutionRole": "hackathon2022teambLambdaRoleb9d9440d-amplify"
       },
-      "lastPushDirHash": "hVujVZ1BxG47cjQKb0JaJ3S3Fhc="
+      "lastPushDirHash": "Og7BIVXIGTJ5pkPWFYUEeFj1Cbw="
     }
   },
   "api": {
@@ -91,7 +91,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-hackathon2022teamb-amplify-164042-deployment/amplify-cfn-templates/api/apif0a60b76-cloudformation-template.json",
         "logicalId": "apiapif0a60b76"
       },
-      "lastPushTimeStamp": "2022-02-24T10:57:08.645Z",
+      "lastPushTimeStamp": "2022-02-24T11:29:30.154Z",
       "output": {
         "ApiName": "apif0a60b76",
         "RootUrl": "https://2bc6cgnu0f.execute-api.ap-northeast-1.amazonaws.com/amplify",
@@ -109,7 +109,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-hackathon2022teamb-amplify-164042-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
         "logicalId": "hostingamplifyhosting"
       },
-      "lastPushTimeStamp": "2022-02-24T10:57:08.658Z",
+      "lastPushTimeStamp": "2022-02-24T11:29:30.162Z",
       "output": {},
       "lastPushDirHash": "rJHI4coLQw2btyL3RFPsCOp9pMM="
     }

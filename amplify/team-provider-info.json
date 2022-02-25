@@ -46,7 +46,7 @@
         },
         "expressMidle": {
           "deploymentBucketName": "amplify-hackathon2022teamb-amplify-164042-deployment",
-          "s3Key": "amplify-builds/expressMidle-79397546554936776d36-build.zip"
+          "s3Key": "amplify-builds/expressMidle-7a466936316c46616578-build.zip"
         }
       },
       "hosting": {
