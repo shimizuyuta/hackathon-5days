@@ -3,16 +3,15 @@ import Layout from '../components/layout/Layout'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Search from '../components/search/Search';
-import { Store } from '../store/index'
+import Style from '../styles/Top.module.scss'
 
 const Top = () => {
   return (
     <Layout>
-      <div>
+      <div className={Style.top_wrap}>
         <h1>化粧品カテゴリを選んでね</h1>
         <div>
           <Tabs>
-
             <TabList>
               <Tab>口紅</Tab>
               <Tab>チーク</Tab>
@@ -32,7 +31,6 @@ const Top = () => {
             <TabPanel>
               <Search message={`ネイル`} />
             </TabPanel>
-
           </Tabs>
         </div>
       </div>

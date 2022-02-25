@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Style from '../../styles/Search.module.scss'
-//import { useNavigate } from 'react-router-dom'
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import Box from '@mui/material/Box';
@@ -10,89 +9,56 @@ import Watch from '../watch/Watch';
 import Stack from '@mui/material/Stack';
 import Amplify, { API } from 'aws-amplify';
 import awsconfig from '../../aws-exports';
-import { Store } from '../../store/index';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-import axios from 'axios';
-
+import { ImCancelCircle } from 'react-icons/im';
 
 Amplify.configure(awsconfig);
 
-
 const Search = props => {
-  const { globalState, setGlobalState } = useContext(Store);
   const [cosme, setCosme] = useState([]);
-  //const navigate = useNavigate();
-  // const imgUrl = 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg'
-  // const imgExample = [imgUrl, imgUrl, imgUrl, imgUrl, imgUrl, imgUrl, imgUrl];
   const [open, setOpen] = useState(false);
-  const [selectId, setSelectId] = useState({});
-  const loading = useRef(false);
+  const [select, setSelect] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [choiceColor, setChoiceColor] = useState(50);
+  const [choiceId, setChoiceId] = useState('1');
 
   const handleOpen = (e) => {
-    setGlobalState({ type: 'SET_COSME', payload: cosme });
-    setSelectId(e);
+    setSelect(e);
     setOpen(true);
   }
 
   const handleClose = () => setOpen(false);
 
-  
-
   //商品API
   const sendApi = async () => {
-    await API.get('apif0a60b76','/item').then(res => {
+    await API.get('apif0a60b76', '/item').then(res => {
       setCosme(res);
       console.log(cosme);
-      //loading.current = true;
+      setIsLoading(true);
     })
   }
 
-  //axios version
-  // const sendApi = async() => {
-  //   axios.get('https://x154dlmxsb.execute-api.ap-northeast-1.amazonaws.com/dev/teamB').then(res => {
-  //     setCosme(res.data);
-  //     console.log(cosme);
-  //   })
-  //   loading.current = true;
-  // }
-
   //APP起動時の初期ロード
   useEffect(() => {
-    loading.current = true;
+    setIsLoading(false)
     sendApi();
   }, [])
 
   //色選択時API
-  const sendColorApi = async (color, id) => {
-    await API.get('apif0a60b76','/item').then(res => {
-      console.log(`${color}`, `${id}`);
-      setCosme(res);
-    })
-  }
-
-  //axios version
   // const sendColorApi = async (color, id) => {
-  //   await axios.get('https://x154dlmxsb.execute-api.ap-northeast-1.amazonaws.com/dev/teamB').then(res => {
+  //   await API.get('apif0a60b76','/item').then(res => {
   //     console.log(`${color}`, `${id}`);
-  //     setCosme(res.data);
+  //     setCosme(res);
   //   })
   // }
 
-  //商品テーブル
-  const cosmeExsample = [
-    { id: 'abcde001', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde002', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde003', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde004', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde005', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde006', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde007', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde008', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde009', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde0010', name: 'プロアクティブ', category: 'リップ', color: 2, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 },
-    { id: 'abcde0011', name: 'ハト麦化粧水', category: '口紅', color: 1, img: 'https://fitter.cosme.net/media/product/10028/skuimg_817574.jpg', brand: 'コーチ', color_name: 'EX-4 マジカルミッドナイトショー', price: 400, H: 300, S: 50, L: 60 }
-  ]
+  //色選択時API
+  const sendColorApi = (color, id) => {
+    setChoiceColor(color);
+    setChoiceId(String(id));
+    console.log(choiceColor.current, choiceId);
+  }
 
   //色テーブル
   const colorExample = [
@@ -116,7 +82,6 @@ const Search = props => {
     { name: 5 }
   ]
 
-
   // const handleClick = (e) => {
   //   navigate('/watch', { state: { id: e } })
   // }
@@ -134,14 +99,14 @@ const Search = props => {
     p: 4,
   };
 
-  if (!loading.current) {
+  if (!isLoading) {
 
     return (
       <>
         <Backdrop
           sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
           //!loading.current
-          open={!loading.current}
+          open={!isLoading}
         //onClick={handleClose}
         >
           <CircularProgress color="inherit" />
@@ -154,15 +119,17 @@ const Search = props => {
       <div className={Style.serch_wrap}>
         <div className={Style.beside}>
           {cosme.map((cosme, i) => {
-            return (
-              <img
-                key={i}
-                src={cosme.img}
-                alt={`${i}`}
-                // onClick={() => handleClick(`${i}`)}
-                onClick={() => handleOpen(cosme)}
-              />
-            )
+            if (cosme.category === props.message && cosme.color === choiceId && choiceColor - 10 <= cosme.L && cosme.L <= choiceColor + 10) {
+              return (
+                <img
+                  key={i}
+                  src={cosme.img}
+                  alt={`${i}`}
+                  // onClick={() => handleClick(`${i}`)}
+                  onClick={() => handleOpen(cosme)}
+                />
+              )
+            }
           })}
           <Modal
             open={open}
@@ -171,7 +138,13 @@ const Search = props => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Watch cosmeObject={selectId} cosmeArray={cosme} />
+              <div align="right">
+                <ImCancelCircle
+                  size={35}
+                  onClick={handleClose}
+                />
+              </div>
+              <Watch cosmeObject={select} cosmeArray={cosme} cosmeColor={choiceColor} />
             </Box>
           </Modal>
         </div>
@@ -208,7 +181,7 @@ const Search = props => {
                           <SpeedDialAction
                             key={action.name}
                             tooltipTitle={action.name}
-                            tooltipOpen = {true}
+                            tooltipOpen={true}
                             onClick={() => sendColorApi(80 - index * 15, i + 1)}
                             icon={<Box sx={{
                               width: "100%",
@@ -229,8 +202,6 @@ const Search = props => {
       </div>
     )
   }
-
-
 }
 
 export default Search
