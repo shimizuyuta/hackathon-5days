@@ -15,7 +15,9 @@
 
 <h4>カテゴリ別に、色からコスメを検索できる</h4>
 <h4>コスメの詳細を見ることができる</h4>
+
 ![cosme1](https://user-images.githubusercontent.com/58338829/158570637-b7774a4d-fe3c-4d6c-82d3-4b4afb58957f.png)
+<img src="https://user-images.githubusercontent.com/58338829/158570637-b7774a4d-fe3c-4d6c-82d3-4b4afb58957f.png" width="200"/>
 ![cosme2](https://user-images.githubusercontent.com/58338829/158570633-f4c1b549-207c-4cb4-89fc-a4a7d37cbddb.png)
 
 
