@@ -20,7 +20,7 @@
   + カテゴリ別に、色からコスメを検索できる
   + 色味を少しだけ変更して探す
 <div align="center">
-<img src="https://user-images.githubusercontent.com/58338829/158570637-b7774a4d-fe3c-4d6c-82d3-4b4afb58957f.png" width="48%" height="500px"/>　　<img src="https://user-images.githubusercontent.com/58338829/158570633-f4c1b549-207c-4cb4-89fc-a4a7d37cbddb.png" width="48%" height="500px"/>
+<img src="https://user-images.githubusercontent.com/58338829/158570637-b7774a4d-fe3c-4d6c-82d3-4b4afb58957f.png" width="48%" height="400px"/>　　<img src="https://user-images.githubusercontent.com/58338829/158570633-f4c1b549-207c-4cb4-89fc-a4a7d37cbddb.png" width="48%" height="400px"/>
 </div>
 
 
